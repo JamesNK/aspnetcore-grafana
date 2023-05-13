@@ -4,6 +4,11 @@
 
 If you're interested in trying out metrics, we've put together [Grafana](https://grafana.com/) dashboards that report ASP.NET Core metrics collected by [Prometheus](https://prometheus.io/). The dashboard JSON files are available in this repository and the dashboards can be [imported into Grafana](https://grafana.com/docs/grafana/latest/dashboards/manage-dashboards/#import-a-dashboard).
 
+## Dashboards
+
+* [ASP.NET Core.json](./dashboards/ASP.NET%20Core.json) - Overview of the ASP.NET Core app
+* [ASP.NET Core Endpoint.json](./dashboards/ASP.NET%20Core%20Endpoint.json) - Detail for a specific ASP.NET Core endpoint
+
 ## Export metrics from ASP.NET Core
 
 ASP.NET Core metrics need to be exported to Prometheus. You can do this by configuring the OpenTelemetry .NET client.
@@ -35,7 +40,6 @@ builder.Services.AddOpenTelemetry()
     });
 
 var app = builder.Build();
-app.UseOpenTelemetryPrometheusScrapingEndpoint();
 app.MapPrometheusScrapingEndpoint();
 
 app.Run();
