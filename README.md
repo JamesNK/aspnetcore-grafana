@@ -50,3 +50,7 @@ app.Run();
 ```
 
 Verify OpenTelemetry has been successfully configured by browsing to the `/metrics` endpoint on your app. It will return metrics data formatted to be scraped by Prometheus.
+
+## Configure Prometheus and Grafana
+
+For information about setting up Prometheus and Grafana, see [View metrics in Grafana with OpenTelemetry and Prometheus](https://learn.microsoft.com/dotnet/core/diagnostics/metrics-collection#view-metrics-in-grafana-with-opentelemetry-and-prometheus).
