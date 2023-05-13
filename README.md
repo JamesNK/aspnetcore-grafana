@@ -41,4 +41,4 @@ app.MapPrometheusScrapingEndpoint();
 app.Run();
 ```
 
-Verify OpenTelemetry was successfully configured by browsing to the `/metrics` endpoint on your app to see the Prometheus scraping content.
+Verify OpenTelemetry has been successfully configured by browsing to the `/metrics` endpoint on your app. It will return metrics data formatted to be scraped by Prometheus.
