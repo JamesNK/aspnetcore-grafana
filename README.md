@@ -9,6 +9,8 @@ If you're interested in trying out metrics, we've put together [Grafana](https:/
 * [ASP.NET Core.json](./dashboards/ASP.NET%20Core.json) - Overview of the ASP.NET Core app
 * [ASP.NET Core Endpoint.json](./dashboards/ASP.NET%20Core%20Endpoint.json) - Detail for a specific ASP.NET Core endpoint
 
+## Screenshot
+
 ![ASP.NET Core Grafana dashboard](./dashboard-screenshot.png)
 
 ## Export metrics from ASP.NET Core
