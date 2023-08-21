@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY",
-      "label": "Managed_Prometheus_jamesnk-telemetry",
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.4.8"
+      "version": "10.0.3"
     },
     {
       "type": "datasource",
@@ -87,7 +87,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -193,10 +193,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.50, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.50, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "legendFormat": "p50",
           "range": true,
           "refId": "p50"
@@ -204,10 +204,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.75, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -216,10 +216,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p90",
           "range": true,
@@ -228,10 +228,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -240,10 +240,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.98, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p98",
           "range": true,
@@ -252,10 +252,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -264,10 +264,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.999, sum(rate(request_duration_s_bucket{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99.9",
           "range": true,
@@ -280,7 +280,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -406,10 +406,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\", status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m]))",
           "legendFormat": "All",
           "range": true,
           "refId": "All"
@@ -417,10 +417,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\", status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m]))",
           "hide": false,
           "legendFormat": "4XX",
           "range": true,
@@ -429,10 +429,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\", status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[5m]))",
           "hide": false,
           "legendFormat": "5XX",
           "range": true,
@@ -445,7 +445,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -529,6 +529,7 @@
       "hideTimeOverride": false,
       "id": 44,
       "options": {
+        "cellHeight": "sm",
         "footer": {
           "countRows": false,
           "fields": "",
@@ -545,16 +546,16 @@
           }
         ]
       },
-      "pluginVersion": "9.4.8",
+      "pluginVersion": "10.0.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (exception_name) (\r\n  max_over_time(request_duration_s_count{route=\"$route\", method=\"$method\", exception_name!=\"\"}[$__rate_interval])\r\n)",
+          "expr": "sum by (exception_type) (\r\n  max_over_time(http_server_request_duration_seconds_count{http_route=\"$route\", http_request_method=\"$method\", exception_type!=\"\"}[$__rate_interval])\r\n)",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -591,7 +592,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -637,15 +638,15 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.4.8",
+      "pluginVersion": "10.0.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by (status_code) (\r\n    max_over_time(request_duration_s_count{route=\"$route\", method=\"$method\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{http_route=\"$route\", http_request_method=\"$method\"}[$__rate_interval])\r\n  )",
           "legendFormat": "Status {{status_code}}",
           "range": true,
           "refId": "A"
@@ -657,7 +658,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -704,15 +705,15 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.4.8",
+      "pluginVersion": "10.0.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by (scheme) (\r\n    max_over_time(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[$__rate_interval])\r\n  )",
           "legendFormat": "{{scheme}}",
           "range": true,
           "refId": "A"
@@ -724,7 +725,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -771,15 +772,15 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.4.8",
+      "pluginVersion": "10.0.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by (protocol) (\r\n    max_over_time(request_duration_s_count{job=\"$job\", instance=\"$instance\", route=\"$route\", method=\"$method\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (method_route) (\r\n    label_join(max_over_time(http_server_request_duration_seconds_count{job=\"$job\", instance=\"$instance\", http_route=\"$route\", http_request_method=\"$method\"}[$__rate_interval]), \"method_route\", \"/\", \"network_protocol_name\", \"network_protocol_version\")\r\n  )",
           "legendFormat": "{{protocol}}",
           "range": true,
           "refId": "A"
@@ -804,9 +805,9 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+          "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(current_requests, job)",
+        "definition": "label_values(http_server_active_requests,job)",
         "hide": 0,
         "includeAll": false,
         "label": "Job",
@@ -814,8 +815,8 @@
         "name": "job",
         "options": [],
         "query": {
-          "query": "label_values(current_requests, job)",
-          "refId": "StandardVariableQuery"
+          "query": "label_values(http_server_active_requests,job)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -827,9 +828,9 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+          "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(current_requests{job=~\"$job\"}, instance)",
+        "definition": "label_values(http_server_active_requests{job=~\"$job\"},instance)",
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -837,8 +838,8 @@
         "name": "instance",
         "options": [],
         "query": {
-          "query": "label_values(current_requests{job=~\"$job\"}, instance)",
-          "refId": "StandardVariableQuery"
+          "query": "label_values(http_server_active_requests{job=~\"$job\"},instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -850,9 +851,9 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+          "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(request_duration_s_count, route)",
+        "definition": "label_values(http_server_request_duration_seconds_count,http_route)",
         "description": "Route",
         "hide": 0,
         "includeAll": false,
@@ -861,8 +862,8 @@
         "name": "route",
         "options": [],
         "query": {
-          "query": "label_values(request_duration_s_count, route)",
-          "refId": "StandardVariableQuery"
+          "query": "label_values(http_server_request_duration_seconds_count,http_route)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -874,9 +875,9 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_MANAGED_PROMETHEUS_JAMESNK-TELEMETRY}"
+          "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(request_duration_s_count{route=~\"$route\"}, method)",
+        "definition": "label_values(http_server_request_duration_seconds_count{http_route=~\"$route\"},http_request_method)",
         "hide": 0,
         "includeAll": false,
         "label": "Method",
@@ -884,8 +885,8 @@
         "name": "method",
         "options": [],
         "query": {
-          "query": "label_values(request_duration_s_count{route=~\"$route\"}, method)",
-          "refId": "StandardVariableQuery"
+          "query": "label_values(http_server_request_duration_seconds_count{http_route=~\"$route\"},http_request_method)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
         "regex": "",
@@ -903,6 +904,6 @@
   "timezone": "",
   "title": "ASP.NET Core Endpoint",
   "uid": "NagEsjE4z",
-  "version": 10,
+  "version": 5,
   "weekStart": ""
 }
