@@ -21,8 +21,8 @@ Add OpenTelemetry packages to the project file:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.5.0-alpha.1" />
-  <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.5.0-alpha.2" />
+  <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.6.0-rc.1" />
+  <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.6.0-rc.1" />
 </ItemGroup>
 ```
 
