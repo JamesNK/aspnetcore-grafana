@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.0.3"
+      "version": ""
     },
     {
       "type": "datasource",
@@ -97,6 +97,7 @@
             "seriesBy": "max"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -111,6 +112,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 1,
             "pointSize": 5,
@@ -290,6 +292,7 @@
             "seriesBy": "max"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -303,6 +306,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 1,
             "pointSize": 5,
@@ -546,7 +550,7 @@
           }
         ]
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "",
       "targets": [
         {
           "datasource": {
@@ -555,7 +559,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by (exception_type) (\r\n  max_over_time(http_server_request_duration_seconds_count{http_route=\"$route\", http_request_method=\"$method\", exception_type!=\"\"}[$__rate_interval])\r\n)",
+          "expr": "sum by (error_type) (\r\n  max_over_time(http_server_request_duration_seconds_count{http_route=\"$route\", http_request_method=\"$method\", error_type!=\"\"}[$__rate_interval])\r\n)",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -576,13 +580,13 @@
             "indexByName": {
               "Time": 0,
               "Value": 2,
-              "exception_name": 1
+              "error_type": 1
             },
             "renameByName": {
               "Value": "Requests",
-              "exception_name": "Exception",
-              "method": "Method",
-              "route": "Route"
+              "error_type": "Exception",
+              "http_request_method": "Method",
+              "http_route": "Route"
             }
           }
         }
@@ -638,7 +642,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "",
       "targets": [
         {
           "datasource": {
@@ -646,8 +650,8 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by (status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{http_route=\"$route\", http_request_method=\"$method\"}[$__rate_interval])\r\n  )",
-          "legendFormat": "Status {{status_code}}",
+          "expr": "sum by (http_response_status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{http_route=\"$route\", http_request_method=\"$method\"}[$__rate_interval])\r\n  )",
+          "legendFormat": "Status {{http_response_status_code}}",
           "range": true,
           "refId": "A"
         }
@@ -705,7 +709,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "",
       "targets": [
         {
           "datasource": {
@@ -772,7 +776,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "10.0.3",
+      "pluginVersion": "",
       "targets": [
         {
           "datasource": {
@@ -793,7 +797,6 @@
   "refresh": "",
   "revision": 1,
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [
     "dotnet",
     "prometheus",
@@ -897,13 +900,27 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "refresh_intervals": [
+      "1s",
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
   "timezone": "",
   "title": "ASP.NET Core Endpoint",
   "uid": "NagEsjE4z",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
