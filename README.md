@@ -13,8 +13,3 @@ If you're interested in trying out metrics, we've put together [Grafana](https:/
 ## Screenshot
 
 ![ASP.NET Core Grafana dashboard](./dashboard-screenshot.png)
-
-> [!IMPORTANT]
-> **The source code for the dashboards now lives at https://aka.ms/dotnet/grafana-source.**
->
-> The dashboard JSON files in this repository are out of date and will eventually be deleted.
